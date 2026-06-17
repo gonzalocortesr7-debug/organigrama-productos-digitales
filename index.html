@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organigrama · Productos Digitales e Innovación</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A0E16; --ink-2:#0E141F; --surface:#151C28; --surface-2:#1B2433;
+    --border:#28323F; --border-soft:#222B38;
+    --text:#E7ECF3; --muted:#8A97A8; --faint:#5C6878;
+    --crm:#3FD0A0;  --crm-dim:rgba(63,208,160,.13);
+    --core:#F2A03D; --core-dim:rgba(242,160,61,.13);
+    --web:#34D5F0;  --web-dim:rgba(52,213,240,.14);
+    --ia:#B388FF;   --ia-dim:rgba(179,136,255,.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    background:
+      radial-gradient(1200px 560px at 80% -8%, rgba(179,136,255,.10), transparent 60%),
+      radial-gradient(900px 500px at 60% -6%, rgba(52,213,240,.05), transparent 60%),
+      var(--ink);
+    color:var(--text); padding:44px 28px 60px; min-height:100vh; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1360px;margin:0 auto}
+
+  header{margin-bottom:34px}
+  .eyebrow{font-family:'Space Grotesk',sans-serif;font-size:11px;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--faint);font-weight:600;margin-bottom:13px;display:flex;align-items:center;gap:12px}
+  .eyebrow::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent)}
+  h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(24px,3vw,36px);font-weight:700;line-height:1.06;letter-spacing:-.02em;margin-bottom:10px}
+  h1 .accent{background:linear-gradient(92deg,var(--web),var(--ia));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .lede{color:var(--muted);font-size:15px;max-width:720px;line-height:1.5}
+
+  .gerencia{margin:0 auto;width:max-content;max-width:100%;text-align:center;
+    background:linear-gradient(180deg,#1E2735,#141B26);border:1px solid var(--border);border-radius:15px;
+    padding:16px 32px;box-shadow:0 18px 40px -24px rgba(0,0,0,.8)}
+  .gerencia .role{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;letter-spacing:-.01em}
+  .gerencia .meta{color:var(--muted);font-size:12.5px;margin-top:3px}
+  .gerencia .tag{display:inline-block;margin-top:9px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--faint);border:1px solid var(--border-soft);border-radius:999px;padding:3px 11px;font-weight:600}
+
+  .stem{width:2px;height:26px;background:var(--border);margin:0 auto}
+  .bus{position:relative;height:2px;background:var(--border);width:78%;margin:0 auto}
+
+  .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:26px;align-items:start}
+  .col{background:linear-gradient(180deg,var(--ink-2),rgba(14,20,31,.35));border:1px solid var(--border-soft);
+    border-radius:18px;padding:16px 15px 18px;position:relative;overflow:hidden}
+  .col::before{content:"";position:absolute;top:0;left:0;right:0;height:3px}
+  .col.crm::before{background:linear-gradient(90deg,var(--crm),transparent)}
+  .col.core::before{background:linear-gradient(90deg,var(--core),transparent)}
+  .col.web::before{background:linear-gradient(90deg,var(--web),transparent)}
+  .col.ia::before{background:linear-gradient(90deg,var(--ia),transparent)}
+  .col.ia{border-color:rgba(179,136,255,.45);box-shadow:0 0 0 1px rgba(179,136,255,.12),0 22px 50px -30px rgba(179,136,255,.5)}
+
+  .chan-label{font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+    font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:7px}
+  .dot{width:7px;height:7px;border-radius:50%;flex:none}
+  .crm .chan-label{color:var(--crm)} .crm .dot{background:var(--crm);box-shadow:0 0 10px var(--crm)}
+  .core .chan-label{color:var(--core)} .core .dot{background:var(--core);box-shadow:0 0 10px var(--core)}
+  .web .chan-label{color:var(--web)} .web .dot{background:var(--web);box-shadow:0 0 10px var(--web)}
+  .ia .chan-label{color:var(--ia)} .ia .dot{background:var(--ia);box-shadow:0 0 10px var(--ia)}
+
+  .lead{border-radius:12px;padding:13px 14px;margin-bottom:14px;background:var(--surface-2);border:1px solid var(--border)}
+  .crm .lead{border-left:3px solid var(--crm)} .core .lead{border-left:3px solid var(--core)}
+  .web .lead{border-left:3px solid var(--web)} .ia .lead{border-left:3px solid var(--ia)}
+  .lead .name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;letter-spacing:-.01em;line-height:1.2}
+  .lead .title{color:var(--muted);font-size:12px;margin-top:3px;line-height:1.3}
+  .lead .badge{display:inline-block;margin-top:9px;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:7px}
+  .crm .lead .badge{background:var(--crm-dim);color:var(--crm)} .core .lead .badge{background:var(--core-dim);color:var(--core)}
+  .web .lead .badge{background:var(--web-dim);color:var(--web)} .ia .lead .badge{background:var(--ia-dim);color:var(--ia)}
+  .badge.nuevo{margin-left:6px;background:var(--ia)!important;color:#1A1030!important}
+
+  .squad-label{font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600;margin:2px 1px 9px}
+  .member{display:flex;align-items:flex-start;gap:10px;background:var(--surface);border:1px solid var(--border-soft);
+    border-radius:10px;padding:9px 11px;margin-bottom:7px;transition:border-color .2s,transform .2s}
+  .member:hover{transform:translateX(3px)}
+  .crm .member:hover{border-color:rgba(63,208,160,.4)} .core .member:hover{border-color:rgba(242,160,61,.4)}
+  .web .member:hover{border-color:rgba(52,213,240,.4)} .ia .member:hover{border-color:rgba(179,136,255,.4)}
+  .mk{flex:none;width:30px;height:30px;border-radius:8px;display:grid;place-items:center;
+    font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:11px}
+  .crm .mk{background:var(--crm-dim);color:var(--crm)} .core .mk{background:var(--core-dim);color:var(--core)}
+  .web .mk{background:var(--web-dim);color:var(--web)} .ia .mk{background:var(--ia-dim);color:var(--ia)}
+  .m-name{font-weight:600;font-size:12.5px;line-height:1.2}
+  .m-role{color:var(--muted);font-size:11.5px;margin-top:2px;line-height:1.25}
+
+  .vacante{border-style:dashed;background:transparent;opacity:.9}
+  .vacante .mk{background:transparent;border:1px dashed var(--faint);color:var(--faint)}
+  .vacante .m-name{color:var(--muted)}
+  .tag-sug{font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ia);font-weight:700;margin-left:5px}
+
+  .notes{margin-top:30px;display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+  .note{background:var(--ink-2);border:1px solid var(--border-soft);border-radius:13px;padding:17px 17px 19px}
+  .note h3{font-family:'Space Grotesk',sans-serif;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:11px;display:flex;align-items:center;gap:8px}
+  .note h3 i{width:6px;height:6px;border-radius:50%;display:inline-block}
+  .note.n1 h3 i{background:var(--ia)} .note.n2 h3 i{background:var(--web)} .note.n3 h3 i{background:var(--crm)}
+  .note ul{list-style:none}
+  .note li{color:var(--muted);font-size:12.5px;line-height:1.5;padding-left:15px;position:relative;margin-bottom:8px}
+  .note li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--faint)}
+  .note li strong{color:var(--text);font-weight:600}
+
+  footer{margin-top:32px;text-align:center;color:var(--faint);font-size:11.5px;letter-spacing:.04em}
+
+  @media (max-width:1080px){.cols{grid-template-columns:repeat(2,1fr)}.notes{grid-template-columns:1fr}}
+  @media (max-width:620px){.cols{grid-template-columns:1fr}.bus{width:90%}body{padding:30px 16px}}
+
+  .fade{opacity:0;transform:translateY(13px);animation:rise .55s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){.fade{animation:none;opacity:1;transform:none}.member{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="fade">
+    <div class="eyebrow">Americar · Soporte Americar</div>
+    <h1>Organigrama del Área · <span class="accent">Productos Digitales e Innovación</span></h1>
+    <p class="lede">Estructura completa del área con la incorporación de Pablo Polanco como cuarto Head, par de Martin. Cada jefatura administra recursos propios: se elimina la capa de recursos compartidos.</p>
+  </header>
+
+  <div class="gerencia fade" style="animation-delay:.05s">
+    <div class="role">Gerencia · Productos Digitales e Innovación</div>
+    <div class="meta">4 jefaturas (Heads) · arbitra prioridades del portafolio</div>
+    <div class="tag">Reporta a CIO</div>
+  </div>
+  <div class="stem fade" style="animation-delay:.1s"></div>
+  <div class="bus fade" style="animation-delay:.1s"></div>
+
+  <div class="cols">
+
+    <!-- CRM -->
+    <section class="col crm fade" style="animation-delay:.15s">
+      <div class="chan-label"><span class="dot"></span>CRM &amp; Proceso Digital</div>
+      <div class="lead">
+        <div class="name">Daniel Esteban Abarca</div>
+        <div class="title">Head CRM y Proceso Digital</div>
+        <span class="badge">Head</span>
+      </div>
+      <div class="squad-label">Equipo · 5</div>
+      <div class="member"><div class="mk">MV</div><div><div class="m-name">Maryorin Caridad Vivas</div><div class="m-role">PM Digital</div></div></div>
+      <div class="member"><div class="mk">GC</div><div><div class="m-name">Guzman Alberto Camacho</div><div class="m-role">PO CRM</div></div></div>
+      <div class="member"><div class="mk">YR</div><div><div class="m-name">Yaritza Yaumarith Rojas</div><div class="m-role">PM Comercial</div></div></div>
+      <div class="member"><div class="mk">FD</div><div><div class="m-name">Francisco Durán</div><div class="m-role">Ingeniero Desarrollador</div></div></div>
+      <div class="member"><div class="mk">VA</div><div><div class="m-name">Victor Eduardo Araya</div><div class="m-role">Desarrollador Fullstack</div></div></div>
+    </section>
+
+    <!-- CORE -->
+    <section class="col core fade" style="animation-delay:.2s">
+      <div class="chan-label"><span class="dot"></span>Producto Core &amp; Ecosistema</div>
+      <div class="lead">
+        <div class="name">Barbara Colle</div>
+        <div class="title">Head Producto Core y Ecosistema Externo</div>
+        <span class="badge">Head</span>
+      </div>
+      <div class="squad-label">Equipo · 2</div>
+      <div class="member"><div class="mk">SE</div><div><div class="m-name">Simón Errázuriz</div><div class="m-role">Ingeniero de Software</div></div></div>
+      <div class="member"><div class="mk">CM</div><div><div class="m-name">Cristian Alfonso Macaya</div><div class="m-role">Tech Lead Ecosistema Externo</div></div></div>
+    </section>
+
+    <!-- WEB -->
+    <section class="col web fade" style="animation-delay:.25s">
+      <div class="chan-label"><span class="dot"></span>Plataformas Web</div>
+      <div class="lead">
+        <div class="name">Martin Felipe Flores</div>
+        <div class="title">Head Plataformas Web</div>
+        <span class="badge">Head</span>
+      </div>
+      <div class="squad-label">Equipo · 5 · capacidades propias</div>
+      <div class="member"><div class="mk">CA</div><div><div class="m-name">Constanza Alejandra Araya</div><div class="m-role">Diseñador UX / UI</div></div></div>
+      <div class="member"><div class="mk">RV</div><div><div class="m-name">René Ignacio Vega</div><div class="m-role">Product Owner</div></div></div>
+      <div class="member"><div class="mk">IB</div><div><div class="m-name">Isaías Leonardo Brito</div><div class="m-role">Desarrollador Web · Backend</div></div></div>
+      <div class="member"><div class="mk">MS</div><div><div class="m-name">Matías Alonso San Martin</div><div class="m-role">Desarrollador Web</div></div></div>
+      <div class="member"><div class="mk">GI</div><div><div class="m-name">Gabriel Iriarte</div><div class="m-role">Desarrollador Web · Frontend</div></div></div>
+    </section>
+
+    <!-- IA / AGENTES (NUEVO) -->
+    <section class="col ia fade" style="animation-delay:.3s">
+      <div class="chan-label"><span class="dot"></span>IA, Analítica &amp; Agentes Virtuales</div>
+      <div class="lead">
+        <div class="name">Pablo Polanco</div>
+        <div class="title">Head IA, Analítica &amp; Agentes Virtuales</div>
+        <span class="badge">Head</span><span class="badge nuevo">Nuevo</span>
+      </div>
+      <div class="squad-label">Equipo · 2 + 1 sugerido · capacidades propias</div>
+      <div class="member"><div class="mk">VO</div><div><div class="m-name">Victorio Alfredo Ortega</div><div class="m-role">NoCode · Orquestación de flujos</div></div></div>
+      <div class="member"><div class="mk">MH</div><div><div class="m-name">Matías Ignacio Herrera</div><div class="m-role">Backend · Integraciones de agentes</div></div></div>
+      <div class="member vacante"><div class="mk">+</div><div><div class="m-name">Data / Analytics Analyst<span class="tag-sug">Sugerido</span></div><div class="m-role">Analítica de producto y de ambos canales</div></div></div>
+    </section>
+
+  </div>
+
+  <div class="notes">
+    <div class="note n1 fade" style="animation-delay:.36s">
+      <h3><i></i>Qué cambia con Pablo</h3>
+      <ul>
+        <li><strong>Cuarto Head</strong>, par de Martin, reportando a la Gerencia.</li>
+        <li>Plataformas Web aporta a <strong>Victorio</strong> y <strong>Matías Herrera</strong> (backend) para formar el canal de Agentes.</li>
+        <li>Pablo lidera IA, analítica y la jefatura de producto del canal de agentes.</li>
+      </ul>
+    </div>
+    <div class="note n2 fade" style="animation-delay:.4s">
+      <h3><i></i>Sin recursos compartidos</h3>
+      <ul>
+        <li><strong>Constanza (UX/UI) y René (PO)</strong> quedan 100% en Plataformas Web.</li>
+        <li>La analítica/IA es una <strong>capacidad del área de Pablo</strong> que el resto consume por colaboración entre Heads, no por headcount compartido.</li>
+        <li>Cada jefatura tiene asignación y prioridades propias.</li>
+      </ul>
+    </div>
+    <div class="note n3 fade" style="animation-delay:.44s">
+      <h3><i></i>Roadmap del canal de Agentes</h3>
+      <ul>
+        <li>Incorporar el <strong>Data/Analytics Analyst</strong> para liberar a Pablo de la ejecución analítica.</li>
+        <li>A futuro, <strong>PO y diseño conversacional dedicados</strong> a medida que el canal escale.</li>
+        <li>Agentes ya tiene <strong>backend propio</strong> (Herrera) para integraciones; apoyo puntual de Web solo si es necesario.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer class="fade" style="animation-delay:.48s">Gerencia + 4 Heads · 14 colaboradores + 1 vacante sugerida — propuesta con Pablo Polanco integrado</footer>
+
+</div>
+</body>
+</html>
